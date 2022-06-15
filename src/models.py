@@ -45,14 +45,15 @@ class User(Base):
     id = Column (Integer, primary_key=True)
     email = Column (String, unique=True)
     password = Column (String (8), nullable=False)
-    favourite_planet = Column (String, nullable=True)
-    favourite_character = Column (String, nullable=True)
 
 # relational table
-class CharacterHomeworld(Base):
-    __tablename__ = 'CharacterHomeworld'
-    characterID = Column(Integer, ForeignKey('character.ID'), primary_key=True)
-    homeworld = Column(Integer, ForeignKey('planet.name'))
+class Favourite(Base):
+    __tablename__ = 'Favourite'
+    userid = Column (Integer, ForeignKey(User.id), primary_key=True)
+    favourite_planet = Column (String, ForeignKey('planet.name')nullable=True)
+    favourite_character = Column (String, ForeignKey('character.name') nullable=True)
+
+
     
 
 # class Person(Base):

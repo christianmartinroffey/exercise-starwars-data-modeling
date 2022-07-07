@@ -9,7 +9,6 @@ from eralchemy import render_er
 Base = declarative_base()
 
 
-
 class Character(Base):
     __tablename__ = 'Character'
     # Here we define columns for the table person
@@ -24,6 +23,15 @@ class Character(Base):
     eye_color = Column (String(50), nullable=False)
     birth_year = Column (String(50), nullable=False)
     gender = Column (String(10), nullable=False)
+
+    # ask if these need to be serializes
+    #  def serialize(self):
+    #     return {
+    #         "id": self.id,
+    #         "email": self.email,
+    #         "username": self.username,
+    #     }
+
 
 class Planet(Base):
     __tablename__ = 'Planet'
